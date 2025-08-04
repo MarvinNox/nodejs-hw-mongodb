@@ -1,8 +1,9 @@
-import { Router } from 'express';
 import {
     createContact,
+    deleteContact,
     getAllContacts,
-    getContactById
+    getContactById,
+    updateContact
 } from '../services/contacts.js';
 import createHttpError from "http-errors";
 
@@ -40,4 +41,34 @@ export const createContactController = async (req, res) => {
         message: 'Successfulle create a contact',
         data: contact,
     });
+};
+
+
+export const patchContactController = async (req, res, next) => {
+    const { contactId } = req.params;
+    const result = await updateContact(contactId, req.body);
+
+    if (!result) {
+        next(createHttpError(404, 'Contact not found'));
+        return;
+    }
+
+    res.json({
+        status: 200,
+        message: `Successfully patched a Contact: ${result.contact.name}`,
+        data: result.contact,
+    });
+};
+
+export const deleteContactController = async (req, res, next) => {
+    const { contactId } = req.params;
+
+    const contact = await deleteContact(contactId);
+
+    if (!contact) {
+        next(createHttpError(404, 'Contact not Found'));
+        return;
+    };
+
+    res.status(204).send();
 };
