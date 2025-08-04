@@ -1,4 +1,6 @@
+import { Router } from 'express';
 import {
+    createContact,
     getAllContacts,
     getContactById
 } from '../services/contacts.js';
@@ -20,7 +22,7 @@ export const getContactByIdController = async (req, res, next) => {
     const contact = await getContactById(contactId);
 
     if (!contact) {
-        throw createHttpError(404, 'Student not found!');
+        throw createHttpError(404, 'Contact not found!');
     };
 
     res.status(200).json({
@@ -28,4 +30,14 @@ export const getContactByIdController = async (req, res, next) => {
         message: `Successfully found contact with id ${contactId}!`,
         data: contact,
     });
-}
+};
+
+export const createContactController = async (req, res) => {
+    const contact = await createContact(req.body);
+
+    res.status(201).json({
+        status: 201,
+        message: 'Successfulle create a contact',
+        data: contact,
+    });
+};
