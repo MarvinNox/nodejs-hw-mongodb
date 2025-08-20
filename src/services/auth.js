@@ -4,7 +4,6 @@ import { UsersCollection } from '../db/models/user.js';
 import { SessionCollection } from '../db/models/session.js'
 import { FIFTEEN_DAYS, FIFTEEN_MINUTES } from '../constants/index.js'
 import createHttpError from 'http-errors';
-import e from 'express';
 
 export const registerUser = async (payload) => {
     const user = await UsersCollection.findOne({

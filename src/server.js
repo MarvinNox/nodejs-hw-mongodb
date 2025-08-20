@@ -5,6 +5,7 @@ import { getEnvVar } from './utils/getEnvVar.js';
 import router from './routers/index.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
+import cookieParser from 'cookie-parser';
 
 const PORT = +(getEnvVar('PORT', '3000'));
 
@@ -18,7 +19,7 @@ export const setupServer = () => {
             target: 'pino-pretty',
         },
     }));
-
+    app.use(cookieParser());
     app.use(router);
     app.use('/', notFoundHandler);
     app.use(errorHandler);

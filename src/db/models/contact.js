@@ -1,8 +1,11 @@
 import { model, Schema, Types } from 'mongoose';
-import { UsersCollection } from './user.js';
 
 const contactSchema = new Schema(
     {
+        userId: {
+            type: Types.ObjectId,
+            ref: 'users',
+        },
         name: {
             type: String,
             required: true,
@@ -25,10 +28,6 @@ const contactSchema = new Schema(
             required: true,
             enum: ['work', 'home', 'personal'],
             default: 'personal',
-        },
-        userId: {
-            type: Types.ObjectId,
-            ref: UsersCollection,
         },
     },
     {

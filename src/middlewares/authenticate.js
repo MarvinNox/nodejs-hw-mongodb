@@ -11,7 +11,7 @@ export const authenticate = async (req, res, next) => {
 
     const [bearer, token] = authHeader.split(' ');
 
-    if (bearer != 'Bearer' || !token) {
+    if (bearer !== 'Bearer' || !token) {
         next(createHttpError(401, 'Auth header should be of type Bearer'));
         return;
     };
@@ -33,6 +33,7 @@ export const authenticate = async (req, res, next) => {
     const user = await UsersCollection.findById(session.userId);
 
     if (!user) {
+        await SessionCollection.findByIdAndDelete(session._id);
         next(createHttpError(401));
         return;
     };

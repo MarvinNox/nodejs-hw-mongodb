@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
 
 const userSchema = new Schema(
     {
@@ -17,6 +17,7 @@ const userSchema = new Schema(
         },
     }, { timestamps: true, versionKey: false }
 );
+
 
 userSchema.methods.toJSON = function () {
     const obj = this.toObject();
