@@ -1,0 +1,39 @@
+{
+  "name": "nodejs-hw-mongodb",
+  "version": "1.0.0",
+  "description": "hw for mongodb",
+  "author": "Marvin Nox",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "start": "node ./src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvinNox/nodejs-hw-mongodb.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/MarvinNox/nodejs-hw-mongodb/issues"
+  },
+  "homepage": "https://github.com/MarvinNox/nodejs-hw-mongodb#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "joi": "^18.0.0",
+    "mongoose": "^8.17.0",
+    "pino-http": "^10.5.0"
+  },
+  "devDependencies": {
+    "eslint": "github:eslint/js",
+    "pino-pretty": "^13.1.1",    
+    "nodemon": "^3.1.10"
+  }
+}
