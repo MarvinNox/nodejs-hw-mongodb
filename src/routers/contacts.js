@@ -11,7 +11,6 @@ import { validateBody } from "../middlewares/validateBody.js";
 import { authenticate } from "../middlewares/authenticate.js";
 import { createContactSchema, updateContactSchema } from "../validation/contacts.js";
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
-import { checkPermissToContact } from "../middlewares/checkPermissToContact.js";
 
 const router = Router();
 
@@ -24,7 +23,6 @@ router.get('/:contactId',
     isValidId);
 
 router.get('/:contactId',
-    checkPermissToContact,
     ctrlWrapper(getContactByIdController));
 
 router.post('/',
@@ -32,12 +30,10 @@ router.post('/',
     ctrlWrapper(createContactController));
 
 router.patch('/:contactId',
-    checkPermissToContact,
     validateBody(updateContactSchema),
     ctrlWrapper(patchContactController));
 
 router.delete('/:contactId',
-    checkPermissToContact,
     ctrlWrapper(deleteContactController));
 
 export default router;
