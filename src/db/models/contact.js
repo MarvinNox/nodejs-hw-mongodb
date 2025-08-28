@@ -31,6 +31,7 @@ const contactSchema = new Schema(
         },
         photo: {
             type: String,
+            default: null,
         }
     },
     {
