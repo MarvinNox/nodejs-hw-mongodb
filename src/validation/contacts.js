@@ -27,7 +27,11 @@ export const updateContactSchema = Joi.object({
     isFavourite: Joi.boolean(),
     contactType: Joi.string().valid('work', 'home', 'personal'),
     userId: Joi.string().custom((value, helper) => {
+<<<<<<< HEAD
         if (value && !!isValidObjectId(value)) {
+=======
+        if (value && !isValidObjectId(value)) {
+>>>>>>> hw6-email-and-images
             return helper.message('userId id should be a valid mongo id');
         }
         return true;

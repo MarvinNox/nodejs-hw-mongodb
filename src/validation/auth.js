@@ -16,4 +16,17 @@ export const loginUserSchema = Joi.object(
         email: Joi.string().email().required(),
         password: Joi.string().min(3).max(30).required(),
     }
+<<<<<<< HEAD
 );
+=======
+);
+
+export const requestResetEmailSchema = Joi.object({
+    email: Joi.string().email().required(),
+})
+
+export const resetPasswordSchema = Joi.object({
+    token: Joi.string().required(),
+    password: Joi.string().required().min(3),
+})
+>>>>>>> hw6-email-and-images

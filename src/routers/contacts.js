@@ -11,6 +11,10 @@ import { validateBody } from "../middlewares/validateBody.js";
 import { authenticate } from "../middlewares/authenticate.js";
 import { createContactSchema, updateContactSchema } from "../validation/contacts.js";
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
+<<<<<<< HEAD
+=======
+import { uploadFile } from "../middlewares/multer.js";
+>>>>>>> hw6-email-and-images
 
 const router = Router();
 
@@ -26,10 +30,18 @@ router.get('/:contactId',
     ctrlWrapper(getContactByIdController));
 
 router.post('/',
+<<<<<<< HEAD
+=======
+    uploadFile.single('photo'),
+>>>>>>> hw6-email-and-images
     validateBody(createContactSchema),
     ctrlWrapper(createContactController));
 
 router.patch('/:contactId',
+<<<<<<< HEAD
+=======
+    uploadFile.single('photo'),
+>>>>>>> hw6-email-and-images
     validateBody(updateContactSchema),
     ctrlWrapper(patchContactController));
 

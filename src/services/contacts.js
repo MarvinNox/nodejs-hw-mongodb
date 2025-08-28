@@ -53,6 +53,11 @@ export const updateContact = async (
     payload,
     option = {}
 ) => {
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> hw6-email-and-images
     const rawResult = await ContactsCollection.findOneAndUpdate(
         { _id: contactId, userId },
         payload,

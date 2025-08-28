@@ -22,18 +22,37 @@
   "homepage": "https://github.com/MarvinNox/nodejs-hw-mongodb#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+<<<<<<< HEAD
+=======
+    "cloudinary": "^2.7.0",
+>>>>>>> hw6-email-and-images
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+<<<<<<< HEAD
     "http-errors": "^2.0.0",
     "joi": "^18.0.0",
     "mongoose": "^8.17.0",
+=======
+    "handlebars": "^4.7.8",
+    "http-errors": "^2.0.0",
+    "joi": "^18.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.5",
+>>>>>>> hw6-email-and-images
     "pino-http": "^10.5.0"
   },
   "devDependencies": {
     "eslint": "github:eslint/js",
+<<<<<<< HEAD
     "pino-pretty": "^13.1.1",    
     "nodemon": "^3.1.10"
+=======
+    "nodemon": "^3.1.10",
+    "pino-pretty": "^13.1.1"
+>>>>>>> hw6-email-and-images
   }
 }

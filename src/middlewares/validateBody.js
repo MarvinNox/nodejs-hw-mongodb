@@ -5,7 +5,11 @@ export const validateBody = (schema) => async (req, res, next) => {
         await schema.validateAsync(req.body, {
             abortEarly: false,
             allowUnknown: false,
+<<<<<<< HEAD
             convert: false,
+=======
+            convert: true,
+>>>>>>> hw6-email-and-images
         });
         next();
     } catch (err) {

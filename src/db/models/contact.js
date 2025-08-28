@@ -29,6 +29,13 @@ const contactSchema = new Schema(
             enum: ['work', 'home', 'personal'],
             default: 'personal',
         },
+<<<<<<< HEAD
+=======
+        photo: {
+            type: String,
+            default: null,
+        }
+>>>>>>> hw6-email-and-images
     },
     {
         timestamps: true,

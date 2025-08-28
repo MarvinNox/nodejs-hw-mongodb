@@ -3,6 +3,11 @@ import {
     logoutUser,
     refreshUserSession,
     registerUser,
+<<<<<<< HEAD
+=======
+    resetPassword,
+    sendResetTokenEmail,
+>>>>>>> hw6-email-and-images
 } from '../services/auth.js'
 import { FIFTEEN_DAYS } from '../constants/index.js';
 
@@ -67,4 +72,26 @@ export const refreshUserSessionController = async (req, res) => {
             accessToken: session.accessToken,
         },
     });
+<<<<<<< HEAD
+=======
+};
+
+export const sendResetEmailController = async (req, res) => {
+    await sendResetTokenEmail(req.body.email);
+
+    res.json({
+        status: 200,
+        message: 'Reset password email has been successfully sent.',
+    });
+};
+
+export const resetPasswordController = async (req, res) => {
+    console.log('req.body:', req.body);
+    await resetPassword(req.body.token, req.body.password);
+
+    res.json({
+        status: 200,
+        message: 'Password has been successfully reset.',
+    });
+>>>>>>> hw6-email-and-images
 };
