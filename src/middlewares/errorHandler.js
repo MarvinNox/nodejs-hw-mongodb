@@ -1,16 +1,17 @@
-import createHttpError from 'http-errors';
+import { HttpError } from 'http-errors';
 import { MongooseError } from 'mongoose';
 import multer from 'multer';
 
 export const errorHandler = (err, req, res, next) => {
-    if (err.status && typeof err.status === 'number') {
-        return res.status(err.status).json({
+
+    if (err instanceof HttpError) {
+        res.status(err.status).json({
             status: err.status,
-            message: err.message || err.name,
+            message: err.name,
             data: err,
         });
+        return;
     }
-
     if (err instanceof multer.MulterError) {
         let message = "File upload error";
 

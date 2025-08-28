@@ -25,5 +25,4 @@ router.post('/reset-pwd',
     validateBody(resetPasswordSchema),
     ctrlWrapper(resetPasswordController));
 
-
 export default router;

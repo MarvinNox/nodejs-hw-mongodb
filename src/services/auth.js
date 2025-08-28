@@ -120,7 +120,7 @@ export const sendResetTokenEmail = async (email) => {
         },
         getEnvVar(ENV_VARS.JWT_SECRET),
         {
-            expiresIn: '15n',
+            expiresIn: '15m',
         },
     );
 
@@ -147,7 +147,6 @@ export const resetPassword = async (token, password) => {
         payload = jwt.verify(token, getEnvVar(ENV_VARS.JWT_SECRET));
     } catch (error) {
         if (error instanceof Error) throw createHttpError(401, error.message);
-
         throw error;
     };
 
@@ -161,5 +160,5 @@ export const resetPassword = async (token, password) => {
 
     await user.save();
 
-    await SessionCollection.findByIdAndDelete({ userId: user._id });
+    await SessionCollection.findOneAndDelete({ userId: user._id });
 };

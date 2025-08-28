@@ -13,7 +13,6 @@ const PORT = +(getEnvVar('PORT', '3000'));
 export const setupServer = () => {
     const app = express();
 
-    app.use(express.json());
     app.use(cors());
     app.use(pino({
         transport: {
@@ -21,9 +20,12 @@ export const setupServer = () => {
         },
     }));
     app.use(cookieParser());
+    app.use(express.json());
     app.use(router);
     app.use('/upload', express.static(UPLOAD_DIR));
     app.use('/', notFoundHandler);
+
+
     app.use(errorHandler);
 
     app.listen(PORT, () => {
