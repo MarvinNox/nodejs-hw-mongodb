@@ -66,6 +66,8 @@ responses:
               $ref: '../../../components/schemas/contact.yaml'
   '400':
     description: Invalid request payload
+    $ref: '../../../components/responses/400.yaml'
+
   '401':
     description: 'Need to be authorized to patch a contact!'
     $ref: '../../../components/responses/401.yaml'

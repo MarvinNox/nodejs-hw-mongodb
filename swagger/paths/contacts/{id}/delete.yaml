@@ -13,7 +13,7 @@ parameters:
     schema:
       type: string
 responses:
-  '200':
+  '204':
     description: Successfully deleted contact
     content:
       application/json:

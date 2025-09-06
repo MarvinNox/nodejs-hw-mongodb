@@ -34,7 +34,7 @@
           "Contacts"
         ],
         "summary": "Get list of contacts",
-        "operationId": "getContactss",
+        "operationId": "getContacts",
         "description": "Get list of user's contacts with this endpoint",
         "security": [
           {
@@ -64,8 +64,7 @@
             "schema": {
               "type": "string",
               "example": "name"
-            },
-            "description": "All contact's fields can be mentioned. Default value - _id"
+            }
           },
           {
             "in": "query",
@@ -120,7 +119,7 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully found students!"
+                      "example": "Successfully found contacts!"
                     },
                     "data": {
                       "type": "object",
@@ -442,7 +441,8 @@
             }
           },
           "400": {
-            "description": "Invalid request payload"
+            "description": "Invalid request payload",
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "description": "Need to be authorized to patch a contact!",
@@ -478,7 +478,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": "Successfully deleted contact",
             "content": {
               "application/json": {
